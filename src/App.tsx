@@ -143,8 +143,8 @@ export default function App() {
                 <Link to="/about">投資人</Link>
                 <Link to="/about">新聞媒體</Link>
                 <Link to="/about">合作夥伴</Link>
-                <Link to="/about">法務</Link>
-                <Link to="/about">服務狀態</Link>
+                <Link to="/about">隱私權政策</Link>
+                <Link to="/about">使用者條款</Link>
               </section>
 
               <section className="footer-col">
@@ -173,7 +173,7 @@ export default function App() {
             <div className="footer-subrow">
               <section className="footer-col footer-col-sub">
                 <h4>解決方案</h4>
-                <Link to="/">網路商店建立工具</Link>
+                <Link to="/">Saas服務搭建</Link>
                 <Link to="/">網站建立工具</Link>
               </section>
             </div>

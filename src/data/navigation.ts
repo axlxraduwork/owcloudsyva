@@ -55,7 +55,7 @@ export const megaMenus: Record<MegaKey, { heading: string; sections: MegaSection
         ],
       },
       {
-        title: "下一步",
+        title: "實做攻略",
         links: [
           { label: "訂閱更新", desc: "接收每月趨勢彙整", to: "/contact" },
           { label: "客製研究", desc: "針對產業需求提供建議", to: "/contact" },

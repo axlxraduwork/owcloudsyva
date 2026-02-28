@@ -81,36 +81,54 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="about-copy">
-        <p className="eyebrow">About Cloudsyva</p>
-        <h1>公司介紹</h1>
-        <p className="about-lead">
-          Cloudsyva 是一家專業的 AWS 代理商及技術顧問公司，致力於協助企業順利導入 AWS 雲端服務及人工智慧（AI）應用。
-        </p>
-        <div className="about-prose">
-          <p>
-            我們透過豐富的實務經驗與技術專長，為企業提供量身訂做的雲端解決方案，從策略規劃到實際部署，
-            全程陪伴企業數位轉型。
+      <div className="about-layout">
+        <div className="about-copy">
+          <p className="eyebrow">About Cloudsyva</p>
+          <h1>公司介紹</h1>
+          <p className="about-lead">
+            Cloudsyva 是一家專業的 AWS 代理商及技術顧問公司，致力於協助企業順利導入 AWS 雲端服務及人工智慧（AI）應用。
           </p>
-          <p>
-            我們的顧問團隊專注於幫助客戶最大化 AWS 雲端架構的優勢，提供資源配置最佳化、
-            營運成本降低與資訊安全強化的專業建議。
-          </p>
-          <p>
-            此外，我們也深入瞭解企業需求，協助導入符合企業發展策略的 AI 解決方案，
-            提升業務效率並強化市場競爭力。
-          </p>
-          <p className="about-keyline">
-            選擇 Cloudsyva，意味著您將獲得一個可靠且高效的合作夥伴，全面推動企業雲端創新與 AI 應用，
-            邁向永續成長的新里程。
-          </p>
+          <div className="about-prose">
+            <p>
+              我們透過豐富的實務經驗與技術專長，為企業提供量身訂做的雲端解決方案，從策略規劃到實際部署，
+              全程陪伴企業數位轉型。
+            </p>
+            <p>
+              我們的顧問團隊專注於幫助客戶最大化 AWS 雲端架構的優勢，提供資源配置最佳化、
+              營運成本降低與資訊安全強化的專業建議。
+            </p>
+            <p>
+              此外，我們也深入瞭解企業需求，協助導入符合企業發展策略的 AI 解決方案，
+              提升業務效率並強化市場競爭力。
+            </p>
+            <p className="about-keyline">
+              選擇 Cloudsyva，意味著您將獲得一個可靠且高效的合作夥伴，全面推動企業雲端創新與 AI 應用，
+              邁向永續成長的新里程。
+            </p>
+          </div>
+          <p className="about-subtitle">我們的服務重點</p>
+          <p>從授權折扣、技術顧問到 AI 導入，協助企業建立可落地、可治理、可擴展的雲端成長模型。</p>
         </div>
-        <p className="about-subtitle">
-          我們的服務重點
-        </p>
-        <p>
-          從授權折扣、技術顧問到 AI 導入，協助企業建立可落地、可治理、可擴展的雲端成長模型。
-        </p>
+
+        <aside className="about-map-card" aria-label="Cloudsyva Taipei Location">
+          <div className="about-map-header">
+            <p>Taiwan Office</p>
+            <h3>Taipei</h3>
+          </div>
+          <div className="about-map-visual">
+            <div className="about-map-grid" />
+            <svg viewBox="0 0 260 320" className="about-map-tw" aria-hidden="true">
+              <path
+                d="M141 18c17 10 27 30 30 52 2 15-3 30-11 42-6 10-8 20-4 31 5 15 7 30 5 46-2 19-13 36-23 52-8 13-13 28-14 43-2 21-18 37-37 44-18 6-38 3-53-8-18-13-28-35-26-57 2-16 10-31 18-45 8-14 16-29 16-46 0-17-7-33-11-50-5-20-5-42 6-60 8-13 22-22 36-29 11-6 20-13 27-23 10-15 31-20 46-12z"
+                className="about-map-island"
+              />
+            </svg>
+            <span className="about-map-pin" aria-hidden="true" />
+            <span className="about-map-ring" aria-hidden="true" />
+            <span className="about-map-scan" aria-hidden="true" />
+          </div>
+          <p className="about-map-caption">新北市林口區 · AWS & AI 顧問服務據點</p>
+        </aside>
       </div>
 
       <div className="about-highlights">
