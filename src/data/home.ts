@@ -69,3 +69,42 @@ export const capabilityCards = [
     summary: "在成長期同時守住資安、法規與稽核要求。",
   },
 ];
+
+export const faqItems = [
+  {
+    question: "為什麼要透過 Cloudsyva 買 AWS？自己綁信用卡不好嗎？",
+    answers: [
+      "Cloudsyva 能協助申請 AWS 授權折扣、信用額度。",
+      "Cloudsyva 也提供技術支援、帳務整合、成本優化建議。",
+      "Cloudsyva 可合法報帳與開發票，符合公司財務需求。",
+    ],
+  },
+  {
+    question: "Cloudsyva 會不會看到我們的資料？",
+    answers: [
+      "資料安全由 AWS 負責，Cloudsyva 無法存取您的 AWS 上資料。",
+      "Cloudsyva 僅能看到帳單與資源消耗情況（非應用內容），除非客戶授權技術協助。",
+    ],
+  },
+  {
+    question: "綁定 Cloudsyva 提供服務後，還能自己操作 AWS 管理台嗎？",
+    answers: [
+      "可以，完全保留原本 AWS Console 管理權限。",
+      "AWS 只有帳單結算切換為 Cloudsyva，不影響系統運作與操作權限。",
+    ],
+  },
+  {
+    question: "AWS 目前有哪些生成式 AI 應用可使用？",
+    answers: [
+      "AWS 提供 Bedrock、Titan、Amazon Q 等生成式 AI 服務，並搭配 Rekognition、Comprehend、Transcribe、SageMaker。",
+      "可快速落地智慧客服、文件處理、程式開發與商業分析等多元場景。",
+    ],
+  },
+  {
+    question: "AWS 目前有哪些 IoT 應用可使用？",
+    answers: [
+      "AWS 提供 IoT Core、IoT Greengrass、IoT SiteWise、IoT Analytics 等服務。",
+      "可支援即時連線、遠端控制、邊緣運算、工業視覺化與 AI 分析，廣泛用於智慧製造與能源監控等場景。",
+    ],
+  },
+];

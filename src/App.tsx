@@ -33,6 +33,9 @@ export default function App() {
   }, []);
 
   const isHeroRoute = location.pathname === "/";
+  const isHomeActive = location.pathname === "/" && openMega === null;
+  const isAboutActive = location.pathname === "/about" && openMega === null;
+  const isTrendsActive = location.pathname === "/trends" && openMega === null;
 
   return (
     <div className="site-shell">
@@ -46,13 +49,13 @@ export default function App() {
           </NavLink>
 
           <nav className="overlay-nav" aria-label="Main navigation">
-            <NavLink to="/" className={({ isActive }) => `overlay-link${isActive ? " is-active" : ""}`} end>
+            <NavLink to="/" className={`overlay-link${isHomeActive ? " is-active" : ""}`} end>
               首頁
             </NavLink>
 
             <button
               type="button"
-              className={`overlay-link overlay-link-button${openMega === "about" ? " is-open" : ""}`}
+              className={`overlay-link overlay-link-button${openMega === "about" ? " is-open" : ""}${isAboutActive ? " is-active" : ""}`}
               onClick={() => setOpenMega((current) => (current === "about" ? null : "about"))}
             >
               公司簡介
@@ -63,7 +66,7 @@ export default function App() {
 
             <button
               type="button"
-              className={`overlay-link overlay-link-button${openMega === "trends" ? " is-open" : ""}`}
+              className={`overlay-link overlay-link-button${openMega === "trends" ? " is-open" : ""}${isTrendsActive ? " is-active" : ""}`}
               onClick={() => setOpenMega((current) => (current === "trends" ? null : "trends"))}
             >
               趨勢文章
@@ -82,7 +85,7 @@ export default function App() {
               登入
             </Link>
             <Link to="/contact" className="overlay-cta">
-              開始免費使用
+              立即開始試用
             </Link>
           </div>
         </div>
@@ -124,7 +127,82 @@ export default function App() {
       </main>
 
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Cloudsyva. All rights reserved.</p>
+        <div className="footer-main">
+          <div className="footer-brand-block">
+            <span className="footer-mark" aria-hidden="true">
+              C
+            </span>
+          </div>
+
+          <div className="footer-content">
+            <div className="footer-columns">
+              <section className="footer-col">
+                <h4>Cloudsyva</h4>
+                <Link to="/about">關於</Link>
+                <Link to="/about">職缺</Link>
+                <Link to="/about">投資人</Link>
+                <Link to="/about">新聞媒體</Link>
+                <Link to="/about">合作夥伴</Link>
+                <Link to="/about">法務</Link>
+                <Link to="/about">服務狀態</Link>
+              </section>
+
+              <section className="footer-col">
+                <h4>支援服務</h4>
+                <Link to="/contact">商家支援服務</Link>
+                <Link to="/contact">Cloudsyva 說明中心</Link>
+                <Link to="/contact">聘僱合作夥伴</Link>
+                <Link to="/contact">Cloudsyva 學習中心</Link>
+              </section>
+
+              <section className="footer-col">
+                <h4>開發人員</h4>
+                <Link to="/trends">Cloudsyva.dev</Link>
+                <Link to="/trends">API 文件</Link>
+                <Link to="/trends">開發者計畫</Link>
+              </section>
+
+              <section className="footer-col">
+                <h4>產品</h4>
+                <Link to="/">商店</Link>
+                <Link to="/">Cloudsyva Plus</Link>
+                <Link to="/">企業適用解決方案</Link>
+              </section>
+            </div>
+
+            <div className="footer-subrow">
+              <section className="footer-col footer-col-sub">
+                <h4>解決方案</h4>
+                <Link to="/">網路商店建立工具</Link>
+                <Link to="/">網站建立工具</Link>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <div className="footer-meta">
+            <span>台灣 | 繁體中文</span>
+            <Link to="/about">服務條款</Link>
+            <Link to="/about">隱私權政策</Link>
+            <Link to="/about">網站地圖</Link>
+          </div>
+          <div className="footer-social" aria-label="Social links">
+            <a href="#" aria-label="Facebook">
+              fb
+            </a>
+            <a href="#" aria-label="YouTube">
+              yt
+            </a>
+            <a href="#" aria-label="Instagram">
+              ig
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              in
+            </a>
+          </div>
+        </div>
+        <p className="footer-copyright">© {new Date().getFullYear()} Cloudsyva. All rights reserved.</p>
       </footer>
     </div>
   );
