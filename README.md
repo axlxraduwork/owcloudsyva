@@ -16,6 +16,8 @@ corepack pnpm install
 ```bash
 corepack pnpm dev
 ```
+corepack pnpm dev --host
+
 
 預設網址：`http://localhost:5173`
 

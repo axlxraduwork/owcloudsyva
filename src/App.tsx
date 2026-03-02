@@ -4,6 +4,7 @@ import { megaMenus, type MegaKey } from "./data/navigation";
 
 export default function App() {
   const [openMega, setOpenMega] = useState<MegaKey | null>(null);
+  const [isCompactNav, setIsCompactNav] = useState(false);
   const location = useLocation();
   const headerRef = useRef<HTMLElement | null>(null);
 
@@ -32,6 +33,27 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 1024px)");
+    const syncCompactMode = (matches: boolean) => {
+      setIsCompactNav(matches);
+      if (matches) {
+        setOpenMega(null);
+      }
+    };
+
+    syncCompactMode(media.matches);
+
+    const onChange = (event: MediaQueryListEvent) => {
+      syncCompactMode(event.matches);
+    };
+
+    media.addEventListener("change", onChange);
+    return () => {
+      media.removeEventListener("change", onChange);
+    };
+  }, []);
+
   const isHeroRoute = location.pathname === "/";
   const isHomeActive = location.pathname === "/" && openMega === null;
   const isAboutActive = location.pathname === "/about" && openMega === null;
@@ -48,49 +70,59 @@ export default function App() {
             <span className="brand-word">cloudsyva</span>
           </NavLink>
 
-          <nav className="overlay-nav" aria-label="Main navigation">
-            <NavLink to="/" className={`overlay-link${isHomeActive ? " is-active" : ""}`} end>
-              首頁
-            </NavLink>
+          {isCompactNav ? (
+            <div className="overlay-actions compact-actions">
+              <Link to="/contact" className="overlay-cta">
+                立即開始試用
+              </Link>
+            </div>
+          ) : (
+            <>
+              <nav className="overlay-nav" aria-label="Main navigation">
+                <NavLink to="/" className={`overlay-link${isHomeActive ? " is-active" : ""}`} end>
+                  首頁
+                </NavLink>
 
-            <button
-              type="button"
-              className={`overlay-link overlay-link-button${openMega === "about" ? " is-open" : ""}${isAboutActive ? " is-active" : ""}`}
-              onClick={() => setOpenMega((current) => (current === "about" ? null : "about"))}
-            >
-              公司簡介
-              <span className="chevron" aria-hidden="true">
-                ▾
-              </span>
-            </button>
+                <button
+                  type="button"
+                  className={`overlay-link overlay-link-button${openMega === "about" ? " is-open" : ""}${isAboutActive ? " is-active" : ""}`}
+                  onClick={() => setOpenMega((current) => (current === "about" ? null : "about"))}
+                >
+                  公司簡介
+                  <span className="chevron" aria-hidden="true">
+                    ▾
+                  </span>
+                </button>
 
-            <button
-              type="button"
-              className={`overlay-link overlay-link-button${openMega === "trends" ? " is-open" : ""}${isTrendsActive ? " is-active" : ""}`}
-              onClick={() => setOpenMega((current) => (current === "trends" ? null : "trends"))}
-            >
-              趨勢文章
-              <span className="chevron" aria-hidden="true">
-                ▾
-              </span>
-            </button>
+                <button
+                  type="button"
+                  className={`overlay-link overlay-link-button${openMega === "trends" ? " is-open" : ""}${isTrendsActive ? " is-active" : ""}`}
+                  onClick={() => setOpenMega((current) => (current === "trends" ? null : "trends"))}
+                >
+                  趨勢文章
+                  <span className="chevron" aria-hidden="true">
+                    ▾
+                  </span>
+                </button>
 
-            <NavLink to="/contact" className={({ isActive }) => `overlay-link${isActive ? " is-active" : ""}`}>
-              聯繫我們
-            </NavLink>
-          </nav>
+                <NavLink to="/contact" className={({ isActive }) => `overlay-link${isActive ? " is-active" : ""}`}>
+                  聯繫我們
+                </NavLink>
+              </nav>
 
-          <div className="overlay-actions">
-            <Link to="/contact" className="overlay-login">
-              登入
-            </Link>
-            <Link to="/contact" className="overlay-cta">
-              立即開始試用
-            </Link>
-          </div>
+              <div className="overlay-actions">
+                <Link to="/contact" className="overlay-login">
+                  登入
+                </Link>
+                <Link to="/contact" className="overlay-cta">
+                  立即開始試用
+                </Link>
+              </div>
+            </>
+          )}
         </div>
 
-        {openMega ? (
+        {openMega && !isCompactNav ? (
           <div className="mega-wrap">
             <div className="mega-panel" role="menu" aria-label={megaMenus[openMega].heading}>
               <div className="mega-grid">
@@ -122,11 +154,40 @@ export default function App() {
         ) : null}
       </header>
 
-      <main className={`page-content${openMega ? " dimmed" : ""}`}>
+      <main className={`page-content${openMega ? " dimmed" : ""}${isHeroRoute ? " page-content-home" : ""}`}>
         <Outlet />
       </main>
 
-      <footer className="footer">
+      {isCompactNav ? (
+        <nav className="bottom-nav" aria-label="Bottom navigation">
+          <NavLink to="/" end className={({ isActive }) => `bottom-nav-item${isActive ? " is-active" : ""}`}>
+            <span className="bottom-nav-icon" aria-hidden="true">
+              ⌂
+            </span>
+            <span>首頁</span>
+          </NavLink>
+          <NavLink to="/about" className={({ isActive }) => `bottom-nav-item${isActive ? " is-active" : ""}`}>
+            <span className="bottom-nav-icon" aria-hidden="true">
+              ◎
+            </span>
+            <span>公司簡介</span>
+          </NavLink>
+          <NavLink to="/trends" className={({ isActive }) => `bottom-nav-item${isActive ? " is-active" : ""}`}>
+            <span className="bottom-nav-icon" aria-hidden="true">
+              ◇
+            </span>
+            <span>趨勢文章</span>
+          </NavLink>
+          <NavLink to="/contact" className={({ isActive }) => `bottom-nav-item${isActive ? " is-active" : ""}`}>
+            <span className="bottom-nav-icon" aria-hidden="true">
+              ✉
+            </span>
+            <span>聯繫我們</span>
+          </NavLink>
+        </nav>
+      ) : null}
+
+      <footer className={`footer${isCompactNav ? " with-bottom-nav" : ""}`}>
         <div className="footer-main">
           <div className="footer-brand-block">
             <span className="footer-mark" aria-hidden="true">
