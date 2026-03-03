@@ -49,9 +49,9 @@ export const megaMenus: Record<MegaKey, { heading: string; sections: MegaSection
       {
         title: "精選內容",
         links: [
-          { label: "速度至上", desc: "網站載入超過 3 秒，超過一半用戶直接離開！", to: "/trends" },
-          { label: "技術實務", desc: "工程團隊的落地方法論", to: "/trends" },
-          { label: "營運指標", desc: "成效追蹤與 KPI 管理", to: "/trends" },
+          { label: "速度至上", desc: "網站載入超過 3 秒，超過一半用戶直接離開！", to: "/trends/mobile-speed" },
+          { label: "資安防護", desc: "AI 時代，駭客更厲害？企業要如何強化資安防護", to: "/trends/ai-security" },
+          { label: "AWS台北", desc: "AWS 亞太（台北）區域已正式上線", to: "/trends/aws-taipei-launch" },
         ],
       },
       {

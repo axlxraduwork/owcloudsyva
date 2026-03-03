@@ -122,17 +122,21 @@ export default function HomePage() {
         <div className="hero-top-inner">
           <div className="hero-copy-main">
             <p className="eyebrow-light">Cloudsyva Official Website</p>
-            <h1>導入雲端，營運如火箭般成長</h1>
+            <h1 className="shopify-hero-title">
+              <span>Cloudsyva是</span>  
+              <span> AWS台灣代理商</span>
+              <span>成本優化，</span>
+              <span>雲端架構設計</span>
+            </h1>
             <p>
-              從 Webflow 遷移到自建架構，保留品牌語言、升級互動體驗，並讓網站成為 SaaS
-              業務成長的第一個產品介面。
+              串接電商、社群與搜尋渠道，讓你的商品在多平台同時曝光，並以同一後台統一管理。
             </p>
             <div className="hero-actions">
               <Link to="/contact" className="btn hero-primary">
-                開始免費評估
+                開始免費試用
               </Link>
               <Link to="/about" className="btn hero-ghost">
-                檢視方案
+                了解方案
               </Link>
             </div>
           </div>
@@ -159,12 +163,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section surface">
-        <h2>核心服務</h2>
-        <p>用 Shopify 式清晰商業資訊架構，搭配 Apple 風格視覺質感，建立專業 SaaS 官網體驗。</p>
-        <div className="trend-grid">
+      <section className="section surface shopify-layer-top">
+        <p className="eyebrow">功能層一</p>
+        <h2>觸及已準備購物的顧客</h2>
+        <p>將商品同步到多個流量入口，並在單一平台集中管理，輕鬆完成各平台營運。</p>
+        <div className="shopify-channel-grid">
           {capabilityCards.map((card) => (
-            <article key={card.title} className="trend-card">
+            <article key={card.title} className="shopify-channel-card">
               <p className="tag">{card.tag}</p>
               <h3>{card.title}</h3>
               <p>{card.summary}</p>
@@ -173,26 +178,51 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section split surface">
-        <div>
-          <p className="eyebrow">Migration Path</p>
-          <h2>Webflow 到自建官網的重構流程</h2>
-          <p>盤點原站內容、重新定義資訊架構、建立可迭代的前端系統，讓官網成為長期資產。</p>
+      <section className="section surface shopify-layer-bottom">
+        <div className="shopify-layer-bottom-copy">
+          <p className="eyebrow">功能層二</p>
+          <h2>集中管理各大市集的銷售業務</h2>
+          <p>
+            透過 Marketplace Connect 類型的管理思維，即時同步跨平台庫存、價格與產品資訊，讓營運效率更高。
+          </p>
+          <Link to="/contact" className="btn hero-ghost">
+            安排顧問諮詢
+          </Link>
         </div>
-        <div className="timeline">
-          <article>
-            <h3>01. Content Mapping</h3>
-            <p>完整搬遷既有文案與頁面邏輯，避免品牌訊息流失。</p>
-          </article>
-          <article>
-            <h3>02. UI System Upgrade</h3>
-            <p>導入 Overlay Navigation、Mega Menu 與玻璃感交互元件。</p>
-          </article>
-          <article>
-            <h3>03. Scalable Frontend</h3>
-            <p>以 React + TypeScript 打造可維運、可擴充的官網基礎。</p>
-          </article>
+        <div className="shopify-market-mock" aria-label="Marketplace management panel">
+          <div className="market-left-tags">
+            <span>amazon</span>
+            <span>walmart</span>
+            <span>ebay</span>
+          </div>
+          <div className="market-main-card">
+            <div className="market-main-head">
+              <strong>cloudsyva</strong>
+              <button type="button">發佈</button>
+            </div>
+            <div className="market-form-row">
+              <label htmlFor="market-product-name">產品名稱</label>
+              <input id="market-product-name" type="text" value="紫色馬克杯" readOnly />
+            </div>
+            <div className="market-form-row">
+              <label htmlFor="market-product-price">價格</label>
+              <input id="market-product-price" type="text" value="NT$1,125" readOnly />
+            </div>
+          </div>
+          <div className="market-right-tags">
+            <span>Google</span>
+            <span>YouTube</span>
+            <span>TikTok</span>
+          </div>
         </div>
+      </section>
+
+      <section className="section surface shopify-market-strip">
+        <h3>探索不同市集</h3>
+        <p>在 Cloudsyva 平台中一鍵啟動熱門市場渠道，快速完成跨平台上架。</p>
+        <Link to="/trends" className="btn hero-ghost">
+          探索更多市集
+        </Link>
       </section>
 
       <section className="section surface">

@@ -1,12 +1,15 @@
-import { useEffect, useRef, useState } from "react";
-import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import { type MouseEvent as ReactMouseEvent, useEffect, useRef, useState } from "react";
+import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { megaMenus, type MegaKey } from "./data/navigation";
 
 export default function App() {
   const [openMega, setOpenMega] = useState<MegaKey | null>(null);
   const [isCompactNav, setIsCompactNav] = useState(false);
+  const [pressedMegaItem, setPressedMegaItem] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
   const headerRef = useRef<HTMLElement | null>(null);
+  const megaNavigateTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
     setOpenMega(null);
@@ -54,10 +57,35 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (megaNavigateTimerRef.current !== null) {
+        window.clearTimeout(megaNavigateTimerRef.current);
+      }
+    };
+  }, []);
+
   const isHeroRoute = location.pathname === "/";
   const isHomeActive = location.pathname === "/" && openMega === null;
   const isAboutActive = location.pathname === "/about" && openMega === null;
-  const isTrendsActive = location.pathname === "/trends" && openMega === null;
+  const isTrendsActive = location.pathname.startsWith("/trends") && openMega === null;
+
+  const isModifiedClick = (event: ReactMouseEvent<HTMLAnchorElement>) =>
+    event.metaKey || event.altKey || event.ctrlKey || event.shiftKey || event.button !== 0;
+
+  const onMegaItemClick = (event: ReactMouseEvent<HTMLAnchorElement>, to: string, itemKey: string) => {
+    if (isModifiedClick(event)) return;
+    event.preventDefault();
+    setPressedMegaItem(itemKey);
+    if (megaNavigateTimerRef.current !== null) {
+      window.clearTimeout(megaNavigateTimerRef.current);
+    }
+    megaNavigateTimerRef.current = window.setTimeout(() => {
+      setPressedMegaItem(null);
+      setOpenMega(null);
+      navigate(to);
+    }, 400);
+  };
 
   return (
     <div className="site-shell">
@@ -129,12 +157,21 @@ export default function App() {
                 {megaMenus[openMega].sections.map((section) => (
                   <section className="mega-col" key={section.title}>
                     <h3>{section.title}</h3>
-                    {section.links.map((item) => (
-                      <Link key={item.label} to={item.to} className="mega-item" onClick={() => setOpenMega(null)}>
-                        <strong>{item.label}</strong>
-                        <span>{item.desc}</span>
-                      </Link>
-                    ))}
+                    {section.links.map((item) => {
+                      const itemKey = `${section.title}-${item.label}`;
+                      return (
+                        <div className="mega-item" key={item.label}>
+                          <strong className="mega-item-title">{item.label}</strong>
+                          <Link
+                            to={item.to}
+                            className={`mega-item-desc${pressedMegaItem === itemKey ? " is-pressed" : ""}`}
+                            onClick={(event) => onMegaItemClick(event, item.to, itemKey)}
+                          >
+                            {item.desc}
+                          </Link>
+                        </div>
+                      );
+                    })}
                   </section>
                 ))}
               </div>
