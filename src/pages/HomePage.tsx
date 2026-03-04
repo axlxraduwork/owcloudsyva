@@ -123,13 +123,13 @@ export default function HomePage() {
           <div className="hero-copy-main">
             <p className="eyebrow-light">Cloudsyva Official Website</p>
             <h1 className="shopify-hero-title">
-              <span>Cloudsyva是</span>  
+              <span>Cloudsyva </span>  
               <span> AWS台灣代理商</span>
               <span>成本優化，</span>
               <span>雲端架構設計</span>
             </h1>
             <p>
-              串接電商、社群與搜尋渠道，讓你的商品在多平台同時曝光，並以同一後台統一管理。
+              提供代理帳號開通、雲端架構設計、成本優化與三聯式發票等完整服務，協助企業快速上雲、安心運營。
             </p>
             <div className="hero-actions">
               <Link to="/contact" className="btn hero-primary">
@@ -181,47 +181,81 @@ export default function HomePage() {
       <section className="section surface shopify-layer-bottom">
         <div className="shopify-layer-bottom-copy">
           <p className="eyebrow">功能層二</p>
-          <h2>集中管理各大市集的銷售業務</h2>
+          <h2>Global Map 即時掌握 AWS 雲端中心位置。</h2>
           <p>
-            透過 Marketplace Connect 類型的管理思維，即時同步跨平台庫存、價格與產品資訊，讓營運效率更高。
+            透過可視化地圖標示全球區域與可用區，快速判斷部署位置、降低延遲並支援資料在地化策略。
           </p>
           <Link to="/contact" className="btn hero-ghost">
             安排顧問諮詢
           </Link>
         </div>
-        <div className="shopify-market-mock" aria-label="Marketplace management panel">
-          <div className="market-left-tags">
-            <span>amazon</span>
-            <span>walmart</span>
-            <span>ebay</span>
+        <div className="shopify-market-mock" aria-label="AWS global regions map">
+          <div className="aws-region-list">
+            <span>us-east-1</span>
+            <span>eu-central-1</span>
+            <span>ap-northeast-1</span>
           </div>
-          <div className="market-main-card">
-            <div className="market-main-head">
-              <strong>cloudsyva</strong>
-              <button type="button">發佈</button>
+          <div className="aws-map-panel">
+            <div className="aws-map-head">
+              <strong>Global AWS Region Map</strong>
+              <button type="button">Live</button>
             </div>
-            <div className="market-form-row">
-              <label htmlFor="market-product-name">產品名稱</label>
-              <input id="market-product-name" type="text" value="紫色馬克杯" readOnly />
-            </div>
-            <div className="market-form-row">
-              <label htmlFor="market-product-price">價格</label>
-              <input id="market-product-price" type="text" value="NT$1,125" readOnly />
+            <div className="aws-map-canvas">
+              <svg viewBox="0 0 1000 520" aria-hidden="true">
+                <path
+                  d="M63 138l38-42 57-19 72 1 58 19 39 28 23 41 2 40-14 37-31 27-41 12-30 14-28 37-24 44-36 26-42 6-36-13-30-25-18-31-12-49 2-54 14-59 21-40z"
+                  className="aws-map-land"
+                />
+                <path
+                  d="M218 336l15-26 28-17 23 5 16 15 7 24-2 32-12 24-17 16-25 4-19-10-12-17-6-22 0-28z"
+                  className="aws-map-land"
+                />
+                <path
+                  d="M372 86l55-27 66-14 73 0 58 12 43 22 23 28 2 34-15 35-27 24-31 11-25-8-18-16-24-8-35 7-24 15-17 22-20 10-18-3-11-15 1-24 13-27 24-24z"
+                  className="aws-map-land"
+                />
+                <path
+                  d="M470 186l26-22 29-4 27 7 22 14 14 25 6 34-2 34-11 36-14 39-17 43-20 35-27 24-36 9-38-8-30-24-18-35-8-40 2-33 11-38 20-36 26-31 16-29 2-26-10-22z"
+                  className="aws-map-land"
+                />
+                <path
+                  d="M594 100l28-18 41-13 52-6 56 2 60 11 51 19 36 28 24 39 10 44-4 49-16 43-23 31-30 24-37 17-43 8-39-2-32-15-20-27-8-34 1-28-8-24-20-26-28-20-22-15 23-18 19-22 5-27-6-27-18-21z"
+                  className="aws-map-land"
+                />
+                <path
+                  d="M535 344l46-20 52-13 59-3 43 9 36 17 24 24 10 31-2 33-17 32-27 25-33 13-30 3-30-8-24-17-16-26-17-31-15-20-22-13-22-9-15-12z"
+                  className="aws-map-land"
+                />
+                <path
+                  d="M760 314l18-28 31-20 37-11 41-3 38 4 30 12 23 20 13 29 1 33-10 33-21 28-30 19-35 9-37-1-31-10-25-18-17-24-8-29 0-23 7-20z"
+                  className="aws-map-land"
+                />
+                <path
+                  d="M671 66l18-8 29-5 33 2 26 8-17 12-28 2-34-2-19-9z"
+                  className="aws-map-land"
+                />
+              </svg>
+              <span className="aws-pin aws-pin-tpe">Taipei</span>
+              <span className="aws-pin aws-pin-tyo">Tokyo</span>
+              <span className="aws-pin aws-pin-sin">Singapore</span>
+              <span className="aws-pin aws-pin-syd">Sydney</span>
+              <span className="aws-pin aws-pin-fra">Frankfurt</span>
+              <span className="aws-pin aws-pin-iad">Virginia</span>
             </div>
           </div>
-          <div className="market-right-tags">
-            <span>Google</span>
-            <span>YouTube</span>
-            <span>TikTok</span>
+          <div className="aws-region-list">
+            <span>ap-east-2</span>
+            <span>ap-southeast-1</span>
+            <span>ap-southeast-2</span>
           </div>
         </div>
       </section>
 
       <section className="section surface shopify-market-strip">
-        <h3>探索不同市集</h3>
-        <p>在 Cloudsyva 平台中一鍵啟動熱門市場渠道，快速完成跨平台上架。</p>
+        <h3>探索全球 AWS 雲端中心</h3>
+        <p>從台北到全球主要區域，快速找到最適合你的部署位置與跨區備援策略。</p>
         <Link to="/trends" className="btn hero-ghost">
-          探索更多市集
+          探索更多雲端趨勢
         </Link>
       </section>
 
