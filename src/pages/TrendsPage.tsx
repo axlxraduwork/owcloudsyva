@@ -47,25 +47,30 @@ const articles = [
 
 export default function TrendsPage() {
   return (
-    <section className="section surface">
-      <h1>趨勢文章</h1>
-      <div className="trend-list">
+    <section className="section surface trends-hub">
+      <div className="trends-hub-head">
+        <p className="eyebrow">Cloudsyva Insights</p>
+        <h1>趨勢文章</h1>
+        <p>聚焦 AWS、AI、資安與雲端治理，提供可直接落地的實務觀點。</p>
+      </div>
+
+      <div className="trends-hub-list">
         {articles.map((article) => (
-          <article className="trend-item" key={article.title}>
-            <div className="trend-item-meta">
+          <article className="trends-hub-item" key={article.title}>
+            <div className="trends-hub-meta">
               <span>{article.category}</span>
               <span>{article.date}</span>
             </div>
-            <h2>
-              <Link to={article.to} className="trend-item-title-link">
-                {article.title}
+            {article.to === "/trends" ? <span className="trends-hub-draft">即將發布</span> : null}
+            <h2>{article.title}</h2>
+            <p>{article.summary}</p>
+            {article.to === "/trends" ? (
+              <span className="trends-hub-disabled">內容整理中</span>
+            ) : (
+              <Link to={article.to} className="trends-hub-link">
+                閱讀文章 →
               </Link>
-            </h2>
-            <p>
-              <Link to={article.to} className="trend-item-summary-link">
-                {article.summary}
-              </Link>
-            </p>
+            )}
           </article>
         ))}
       </div>

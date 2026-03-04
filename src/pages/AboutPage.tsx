@@ -75,10 +75,6 @@ export default function AboutPage() {
             </span>
           ))}
         </div>
-        <div className="about-hero-overlay">
-          <p>Cloudsyva Inc.</p>
-          <h2>AWS + AI Transformation Partner</h2>
-        </div>
       </div>
 
       <div className="about-layout">

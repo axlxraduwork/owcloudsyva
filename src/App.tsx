@@ -225,10 +225,12 @@ export default function App() {
       ) : null}
 
       <footer className={`footer${isCompactNav ? " with-bottom-nav" : ""}`}>
+        <div className="footer-accent" aria-hidden="true" />
+
         <div className="footer-main">
           <div className="footer-brand-block">
             <span className="footer-mark" aria-hidden="true">
-              C
+              S
             </span>
           </div>
 
@@ -241,8 +243,9 @@ export default function App() {
                 <Link to="/about">投資人</Link>
                 <Link to="/about">新聞媒體</Link>
                 <Link to="/about">合作夥伴</Link>
-                <Link to="/about">隱私權政策</Link>
-                <Link to="/about">使用者條款</Link>
+                <Link to="/about">聯盟夥伴</Link>
+                <Link to="/about">法務</Link>
+                <Link to="/about">服務狀態</Link>
               </section>
 
               <section className="footer-col">
@@ -257,21 +260,21 @@ export default function App() {
                 <h4>開發人員</h4>
                 <Link to="/trends">Cloudsyva.dev</Link>
                 <Link to="/trends">API 文件</Link>
-                <Link to="/trends">開發者計畫</Link>
+                <Link to="/trends">Dev Degree</Link>
               </section>
 
               <section className="footer-col">
-                <h4>產品</h4>
+                <h4>商品</h4>
                 <Link to="/">商店</Link>
                 <Link to="/">Cloudsyva Plus</Link>
-                <Link to="/">企業適用解決方案</Link>
+                <Link to="/">企業適用的 Cloudsyva 方案</Link>
               </section>
             </div>
 
             <div className="footer-subrow">
               <section className="footer-col footer-col-sub">
                 <h4>解決方案</h4>
-                <Link to="/">Saas服務搭建</Link>
+                <Link to="/">網路商店建立工具</Link>
                 <Link to="/">網站建立工具</Link>
               </section>
             </div>
@@ -280,27 +283,35 @@ export default function App() {
 
         <div className="footer-bottom">
           <div className="footer-meta">
-            <span>台灣 | 繁體中文</span>
+            <span className="footer-locale">◉ 台灣 | 繁體中文 ▾</span>
             <Link to="/about">服務條款</Link>
             <Link to="/about">隱私權政策</Link>
             <Link to="/about">網站地圖</Link>
           </div>
           <div className="footer-social" aria-label="Social links">
             <a href="#" aria-label="Facebook">
-              fb
+              f
+            </a>
+            <a href="#" aria-label="X">
+              x
             </a>
             <a href="#" aria-label="YouTube">
-              yt
+              ▶
             </a>
             <a href="#" aria-label="Instagram">
               ig
             </a>
+            <a href="#" aria-label="TikTok">
+              t
+            </a>
             <a href="#" aria-label="LinkedIn">
               in
             </a>
+            <a href="#" aria-label="Pinterest">
+              p
+            </a>
           </div>
         </div>
-        <p className="footer-copyright">© {new Date().getFullYear()} Cloudsyva. All rights reserved.</p>
       </footer>
     </div>
   );
